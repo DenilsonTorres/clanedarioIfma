@@ -19,10 +19,18 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+import User from 'App/Models/User'
 
 Route.post('session', 'SessionsController.store')
 
-Route.group(() => {
-  Route.delete('session', 'SessionsController.destroy')
-  Route.resource('user', 'UsersController').apiOnly()
-}).middleware('auth')
+Route.delete('session', 'SessionsController.destroy')
+Route.resource('user', 'UsersController').apiOnly()
+Route.resource('event', 'EventsController')
+  .apiOnly()
+  .middleware({
+    store: ['acl:admin'],
+    update: ['acl:admin'],
+    destroy: ['acl:admin'],
+    index: ['acl:admin, user'],
+    show: ['acl:admin, user'],
+  })

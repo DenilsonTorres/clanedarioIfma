@@ -17,7 +17,7 @@ export default class User extends BaseModel {
   public password: string
 
   @column()
-  public profile?: 'admin' | 'user'
+  public profile: 'admin' | 'user'
 
   @hasMany(() => Event)
   public events: HasMany<typeof Event>

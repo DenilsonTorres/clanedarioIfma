@@ -10,6 +10,7 @@
 */
 
 import Server from '@ioc:Adonis/Core/Server'
+import Acl from 'App/Middleware/Acl'
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +40,6 @@ Server.middleware.register([() => import('@ioc:Adonis/Core/BodyParser')])
 |
 */
 Server.middleware.registerNamed({
-    auth: () => import('App/Middleware/Auth')
+  auth: () => import('App/Middleware/Auth'),
+  acl: () => import('App/Middleware/Acl'),
 })
