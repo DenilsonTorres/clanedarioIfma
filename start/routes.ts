@@ -26,6 +26,7 @@ Route.post('session', 'SessionsController.store')
 Route.delete('session', 'SessionsController.destroy')
 Route.resource('user', 'UsersController').apiOnly()
 Route.resource('event', 'EventsController')
+
   .apiOnly()
   .middleware({
     store: ['acl:admin'],
@@ -34,3 +35,9 @@ Route.resource('event', 'EventsController')
     index: ['acl:admin, user'],
     show: ['acl:admin, user'],
   })
+
+Route.post('course', 'CoursesController.store')
+Route.get('course', 'CoursesController.index')
+Route.get('course/:id', 'CoursesController.show')
+Route.put('course/:id', 'CoursesController.update')
+Route.delete('course/:id', 'CoursesController.destroy')
