@@ -24,7 +24,7 @@ export default class EventsController {
 
   public async update({ request, response, params }: HttpContextContract) {
     try {
-      const event = await Event.findByOrFail('id', params.id)
+      const event = await Event.findOrFail('id', params.id)
       const data = request.only(['title', 'description'])
       event.merge(data)
       await event.save()
