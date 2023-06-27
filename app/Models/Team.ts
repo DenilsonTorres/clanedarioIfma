@@ -6,7 +6,7 @@ export default class Team extends BaseModel {
   public id: number
 
   @column()
-  public userId: number
+  public name: string
 
   @column()
   public courseId: number

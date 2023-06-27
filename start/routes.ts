@@ -1,28 +1,6 @@
-/*
-|--------------------------------------------------------------------------
-| Routes
-|--------------------------------------------------------------------------
-|
-| This file is dedicated for defining HTTP routes. A single file is enough
-| for majority of projects, however you can define routes in different
-| files and just make sure to import them inside this file. For example
-|
-| Define routes in following two files
-| ├── start/routes/cart.ts
-| ├── start/routes/customer.ts
-|
-| and then import them inside `start/routes.ts` as follows
-|
-| import './routes/cart'
-| import './routes/customer'
-|
-*/
-
 import Route from '@ioc:Adonis/Core/Route'
-import User from 'App/Models/User'
 
 Route.post('session', 'SessionsController.store')
-
 Route.delete('session', 'SessionsController.destroy')
 Route.resource('user', 'UsersController').apiOnly()
 Route.resource('event', 'EventsController')
@@ -41,3 +19,15 @@ Route.get('course', 'CoursesController.index')
 Route.get('course/:id', 'CoursesController.show')
 Route.put('course/:id', 'CoursesController.update')
 Route.delete('course/:id', 'CoursesController.destroy')
+
+Route.get('team', 'TeamsController.index')
+Route.post('team', 'TeamsController.store')
+Route.put('team/:id', 'TeamsController.update')
+Route.get('team/:id', 'TeamsController.show')
+Route.delete('team/:id', 'TeamsController.destroy')
+
+Route.get('teamevent', 'TeamEventsController.store')
+Route.post('teamevent', 'TeamEventsController.index')
+Route.put('teamevent/:id', 'TeamEventsController.show')
+Route.get('teamevent/:id', 'TeamEventsController.update')
+Route.delete('teamevent/:id', 'TeamEventsController.destroy')

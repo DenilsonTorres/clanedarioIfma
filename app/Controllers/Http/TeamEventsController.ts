@@ -1,3 +1,14 @@
-// import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+/* eslint-disable no-unreachable */
+import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class TeamEventsController {}
+export default class TeamEventsController {
+  public async index({}: HttpContextContract) {}
+
+  public async store({}: HttpContextContract) {}
+
+  public async show({}: HttpContextContract) {}
+
+  public async update({}: HttpContextContract) {}
+
+  public async destroy({}: HttpContextContract) {}
+}
