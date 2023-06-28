@@ -11,9 +11,22 @@ export default class Team extends BaseModel {
   @column()
   public courseId: number
 
-  @column.dateTime({ autoCreate: true, serializeAs: null })
+  @column.dateTime({
+    autoCreate: true,
+    serializeAs: null,
+    serialize: (value) => {
+      return value.toFormat('dd/MM/yyyy HH:mm:ss')
+    },
+  })
   public createdAt: DateTime
 
-  @column.dateTime({ autoCreate: true, autoUpdate: true, serializeAs: null })
+  @column.dateTime({
+    autoCreate: true,
+    autoUpdate: true,
+    serializeAs: null,
+    serialize: (value) => {
+      return value.toFormat('dd/MM/yyyy HH:mm:ss')
+    },
+  })
   public updatedAt: DateTime
 }
